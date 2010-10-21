@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
   s.summary = %q{Project-Honeypot provides a programatic interface to the Project Honeypot services.}
   s.homepage = %q{http://teachmetocode.com/}
   s.description = %q{{Project-Honeypot provides a programatic interface to the Project Honeypot services. It can be used to identify spammers, bogus commenters, and harvesters. You will need a FREE api key from http://projecthoneypot.org}
+  s.add_dependency('net-dns')
   s.files = [ "README", 
               "MIT-LICENSE", 
               "lib/project_honeypot.rb",
