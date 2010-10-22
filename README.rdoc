@@ -1,0 +1,74 @@
+= Project Honeypot
+
+Project Honeypot is a programmatic interface to the Project Honeypot HTTP:BL service for identifying suspicious ip addresses.
+This Gem was built to filter out spammers on http://www.tweetburner.com.
+
+It is a handy thing to be able to identify spammers, harvesters, and other suspicious IP addresses if you're worried about who might be abusing your service.
+
+= Requirements
+
+This Gem requires that you have an Http:BL API key from Project Honeypot. You can get one at http://projecthhoneypot.org
+
+= Usage
+
+HTTP:BL lookups through Project Honeypot result in a Url object that gives you the risk score, last activity, and types of offenses the ip address is listed for.
+
+The score is worse the higher it is and the last_activity is in days.
+
+== Example #1: Suspicious IP Address
+
+Given an api key of "abcdefghijkl"
+
+  @listing = ProjectHoneypot.lookup("abcdefghijkl", "192.168.1.1")
+  @listing.safe?
+  # => false
+
+  @listing.ip_address
+  # => "192.168.1.1"
+
+  @listing.score
+  # => 63
+
+  @listing.last_activity
+  # => 1
+
+  @listing.offenses
+  # => [:comment_spammer, :suspicious]
+
+  @listing.comment_spammer?
+  # => true
+
+  @listing.suspicious?
+  # => true
+
+  @listing.harvester?
+  # => false
+
+== Example #2: Safe IP Address
+
+  @listing = ProjectHoneypot.lookup("abcdefghijkl", "192.168.1.1")
+  @listing.safe?
+  # => true
+
+  @listing.ip_address
+  # => "192.168.1.1"
+
+  @listing.score
+  # => 0
+
+  @listing.last_activity
+  # => nil
+
+  @listing.offenses
+  # => []
+
+  @listing.comment_spammer?
+  # => false
+
+  @listing.suspicious?
+  # => false
+
+  @listing.harvester?
+  # => false
+
+
