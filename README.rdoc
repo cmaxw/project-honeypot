@@ -71,4 +71,8 @@ Given an api key of "abcdefghijkl"
   @listing.harvester?
   # => false
 
+= To Do Items
 
+- Cache Responses from Project Honeypot
+- Allow 'safe?' to be configurable (algorithm based on recency and severity(score))
+- A .yml config file
