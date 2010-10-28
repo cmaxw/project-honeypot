@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{project-honeypot}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
   s.date = %q{2010-10-22}
   s.authors = ["Charles Max Wood"]
   s.email = %q{chuck@teachmetocode.com}
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.add_dependency('net-dns')
   s.files = [ "README.rdoc", 
               "MIT-LICENSE", 
-              "lib/project_honeypot.rb",
+              "lib/project-honeypot.rb",
               "lib/project_honeypot/url.rb",
               "lib/project_honeypot/base.rb"]
 end
