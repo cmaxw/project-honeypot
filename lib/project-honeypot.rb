@@ -1,4 +1,4 @@
-require 'net/dns/resolver'
+require 'net/dns'
 require File.dirname(__FILE__) + "/project_honeypot/url.rb"
 require File.dirname(__FILE__) + "/project_honeypot/base.rb"
 
