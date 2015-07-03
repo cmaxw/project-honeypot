@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = %q{project-honeypot}
-  s.version = "0.1.1"
-  s.date = %q{2010-10-22}
+  s.version = "0.1.2"
+  s.date = %q{2015-07-02}
   s.authors = ["Charles Max Wood"]
   s.email = %q{chuck@teachmetocode.com}
   s.summary = %q{Project-Honeypot provides a programatic interface to the Project Honeypot services.}
