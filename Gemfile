@@ -3,4 +3,4 @@ source "http://rubygems.org"
 
 gem "rspec"
 gem "flexmock"
-gem "net-dns"
+gem "net-dns2"
