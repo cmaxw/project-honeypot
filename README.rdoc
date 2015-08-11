@@ -7,7 +7,7 @@ It is a handy thing to be able to identify spammers, harvesters, and other suspi
 
 = Requirements
 
-This Gem requires that you have an Http:BL API key from Project Honeypot. You can get one at http://projecthhoneypot.org
+This Gem requires that you have an Http:BL API key from Project Honeypot. You can get one at http://www.projecthoneypot.org/
 
 = Usage
 
