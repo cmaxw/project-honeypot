@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{project-honeypot}
-  s.version = "0.1.3"
+  s.version = "0.1.4"
   s.date = %q{2015-07-02}
   s.authors = ["Charles Max Wood"]
   s.email = %q{chuck@teachmetocode.com}
@@ -12,5 +12,6 @@ Gem::Specification.new do |s|
               "MIT-LICENSE", 
               "lib/project-honeypot.rb",
               "lib/project_honeypot/url.rb",
-              "lib/project_honeypot/base.rb"]
+              "lib/project_honeypot/base.rb",
+              "lib/project_honeypot/middleware.rb"]
 end
