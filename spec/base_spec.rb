@@ -9,9 +9,9 @@ describe ProjectHoneypot::Base do
 
     it "returns a Url object" do
       url = @base.lookup("127.10.10.5")
-      url.should be_a ProjectHoneypot::Url
-      url.last_activity.should == 1
-      url.score.should == 63
+      expect(url).to be_a ProjectHoneypot::Url
+      expect(url.last_activity).to eq(1)
+      expect(url.score).to eq(63)
     end
 
     it "looks up non-ip addresses" do
