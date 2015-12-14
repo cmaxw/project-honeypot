@@ -11,15 +11,17 @@ This Gem requires that you have an Http:BL API key from Project Honeypot. You ca
 
 = Rails Support
 
-Automatically block requests by environment or method (**POST**, **PUT**, **PATCH*, **DELETE*) to prevent malicious behavior from known spammers and the spambots. Choose a threat tolerance, for example no_tolerance, or a customized level of tolerance based on the threat score (0-255, 255 being the most threatening) or the days since last activity.  You can also specify the error status code, headers and message.
+Automatically block requests by environment or method (for example, **POST**, **PUT**, **PATCH*, **DELETE*) to prevent malicious behavior from known spammers and the spambots. Choose a threat tolerance, for example no_tolerance, or a customized level of tolerance based on the threat score (0-255, 255 being the most threatening) or the days since last activity.  You can also specify the error status code, headers and message.
 
 == Setup
 
 1) Add `'project-honeypot', '`~> 0.1.4'` to your Gemfile and bundle install
-2) Add an initializer to your application:
+2) Run `rails generate project_honeypot:install` to add an initializer to your application
+
+== Initializer Confirguration
 
     ProjectHoneypot.configure do |config|
-      config.api_key = ENV['HONEYPOT_API_KEY']
+      config.api_key = ENV['HONEYPOT_API_KEY'] # required
       config.methods = ['POST', 'PUT', 'PATCH', 'DELETE'] # default
       config.environments = ['production'] # default
       config.no_tolerance = true # default

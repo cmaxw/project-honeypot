@@ -13,5 +13,8 @@ Gem::Specification.new do |s|
               "lib/project-honeypot.rb",
               "lib/project_honeypot/url.rb",
               "lib/project_honeypot/base.rb",
-              "lib/project_honeypot/middleware.rb"]
+              "lib/project_honeypot/middleware.rb",
+              "lib/project_honeypot/configuration.rb",
+              "lib/project_honeypot/railtie.rb"
+            ]
 end
