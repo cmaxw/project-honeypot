@@ -13,7 +13,7 @@ module ProjectHoneypot
   end
 
   def self.query(opts={})
-    fail ArgumentError, 'You must specify an IP Address.' unless opts[:ip].present?
+    fail ArgumentError, 'You must specify an IP Address.' if opts[:ip].nil?
     Base.new(opts[:api_key] || nil).lookup(opts[:ip])
   end
 end

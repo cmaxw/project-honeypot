@@ -2,7 +2,7 @@ module ProjectHoneypot
   class Base
     def initialize(api_key = nil)
       @api_key = api_key || ProjectHoneypot.configuration.api_key
-      fail ArgumentError, 'You must specify an api_key.' unless @api_key.present?
+      fail ArgumentError, 'You must specify an api_key.' if @api_key.nil?
     end
 
     def lookup(ip_address)

@@ -7,24 +7,24 @@ describe ProjectHoneypot::Url do
     end
 
     it "is safe" do
-      @url.should_not be_safe
+      expect(@url).to_not be_safe
     end
 
     it "has the correct latest activity" do
-      @url.last_activity.should == 1
+      expect(@url.last_activity).to eq(1)
     end
 
     it "has the correct score" do
-      @url.score.should == 63
+      expect(@url.score).to eq(63)
     end
 
     it "has the correct offenses" do
-      @url.offenses.should include(:suspicious)
-      @url.offenses.should include(:harvester)
-      @url.offenses.should_not include(:comment_spammer)
-      @url.should be_suspicious
-      @url.should be_harvester
-      @url.should_not be_comment_spammer
+      expect(@url.offenses).to include(:suspicious)
+      expect(@url.offenses).to include(:harvester)
+      expect(@url.offenses).to_not include(:comment_spammer)
+      expect(@url).to be_suspicious
+      expect(@url).to be_harvester
+      expect(@url).to_not be_comment_spammer
     end
   end
 

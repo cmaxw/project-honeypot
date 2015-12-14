@@ -6,5 +6,5 @@ module ProjectHoneypot
     generators do
       require "generators/install_generator"
     end
-  end
+  end if defined? ::Rails::Railtie
 end

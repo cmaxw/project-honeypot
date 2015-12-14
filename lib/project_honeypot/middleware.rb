@@ -7,15 +7,16 @@ module ProjectHoneypot
 
     def call(env)
       begin
-        # Validate Request :: API_KEY present?, right environment, right method?
-        if ProjectHoneypot.configuration.api_key.present? && ProjectHoneypot.configuration.environments.include?(ENV['RACK_ENV'])  && ProjectHoneypot.configuration.methods.include?(env['REQUEST_METHOD'])
+
+        # Validate Request :: API_KEY present, right environment, right method?
+        if !(ProjectHoneypot.configuration.api_key.nil?) && ProjectHoneypot.configuration.environments.include?(ENV['RACK_ENV'])  && ProjectHoneypot.configuration.methods.include?(env['REQUEST_METHOD'])
           request = ProjectHoneypot.query({ip:  (env['HTTP_FASTLY_CLIENT_IP'] || env['REMOTE_ADDR']) })
           # IF no_tolerance, and request not safe?
           if ((!!(ProjectHoneypot.configuration.no_tolerance) && !(request.safe?)) ||
             # OR request score >= configuration score_tolerance
             (request.score.to_i >= ProjectHoneypot.configuration.score_tolerance.to_i) ||
             # OR request last_activity <= configuration score_tolerance
-            (request.last_activity.to_i <= ProjectHoneypot.configuration.last_activity_tolerance.to_i))
+            (!(request.last_activity.nil?) && request.last_activity.to_i <= ProjectHoneypot.configuration.last_activity_tolerance.to_i))
             # THEN RETURN ERROR INSTEAD OF RESPONSE
             error(env)
           else
