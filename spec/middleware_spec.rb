@@ -23,10 +23,11 @@ describe ProjectHoneypot::Middleware do
 
   describe "good request" do
     before(:each){
-      flexmock(Net::DNS::Resolver, :start => flexmock("answer", :answer => [nil]))
+      allow(Net::DNS::Resolver).to receive_message_chain(:start, :answer).and_return([nil])
     }
     
     it 'says Hello World' do
+      allow(ProjectHoneypot::Base).to receive(:lookup).and_return([nil])
       post '/', {}, 'REMOTE_ADDR' => @ip
       expect(last_response).to be_ok
       expect(last_response.body).to eq('Hello World')
@@ -35,7 +36,7 @@ describe ProjectHoneypot::Middleware do
   
   describe "bad request" do
     before(:each){
-      flexmock(Net::DNS::Resolver, :start => flexmock("answer", :answer => ["somedomain.httpbl.org A Name 127.82.64.5"]))
+      allow(Net::DNS::Resolver).to receive_message_chain(:start, :answer).and_return(["somedomain.httpbl.org A Name 127.82.64.5"])
     }
     
     it 'says WARNING' do
