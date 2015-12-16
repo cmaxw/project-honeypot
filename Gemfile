@@ -2,5 +2,8 @@
 source "http://rubygems.org"
 
 gem "rspec"
+gem "rspec-mocks"
 gem "flexmock"
-gem "net-dns2"
+gem "net-dns"
+gem "test-unit"
+gem "rack-test"
